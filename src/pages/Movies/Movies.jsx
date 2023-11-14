@@ -1,8 +1,9 @@
 import { useState, useEffect } from 'react';
 import { useSearchParams } from 'react-router-dom';
-import { fetchByQuery } from 'services/themoviedb.api';
+import { fetchByQuery } from 'api/themoviedb.api';
 
 import { MoviesList } from 'pages/Movies-List/MoviesList';
+import { MovieSearch } from 'pages/Movies-Search/MoviesSerch';
 
 const Movies = () => {
   const [movie, setMovie] = useState([]);

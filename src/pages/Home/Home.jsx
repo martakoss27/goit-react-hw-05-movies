@@ -14,6 +14,7 @@ const Home = () => {
     setIsLoading(true);
     fetchMovies()
       .then(response => {
+        console.log(response);
         setMovies(response);
       })
       .catch(error => {
