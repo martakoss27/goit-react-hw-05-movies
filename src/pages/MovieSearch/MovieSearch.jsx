@@ -1,5 +1,10 @@
 import { useSearchParams } from 'react-router-dom';
-import css from './MoviesSerch.module.css';
+import {
+  FormContainer,
+  Form,
+  InputStyled,
+  ButtonStyled,
+} from './MovieSearch.styled';
 
 export const MovieSearch = () => {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -16,10 +21,9 @@ export const MovieSearch = () => {
   };
 
   return (
-    <div className={css.SearchContainer}>
-      <form autoComplete="off" onSubmit={handleSubmit}>
-        <input
-          className={css.SearchInput}
+    <FormContainer>
+      <Form autoComplete="off" onSubmit={handleSubmit}>
+        <InputStyled
           type="text"
           name="searchQuery"
           placeholder="Search for movie"
@@ -27,10 +31,8 @@ export const MovieSearch = () => {
           autoFocus
           defaultValue={search}
         />
-        <button className={css.SearchButton} type="submit">
-          Search
-        </button>
-      </form>
-    </div>
+        <ButtonStyled type="submit">Search</ButtonStyled>
+      </Form>
+    </FormContainer>
   );
 };

@@ -1,6 +1,6 @@
+import { MovieList } from 'pages/MovieList';
 import { useEffect, useState } from 'react';
 import { fetchMovies } from 'api/themoviedb.api';
-import { MoviesList } from 'pages/Movies-List/MoviesList';
 
 const Home = () => {
   const [movies, setMovies] = useState([]);
@@ -14,7 +14,6 @@ const Home = () => {
     setIsLoading(true);
     fetchMovies()
       .then(response => {
-        console.log(response);
         setMovies(response);
       })
       .catch(error => {
@@ -27,7 +26,7 @@ const Home = () => {
     <main>
       {isLoading && 'Loading...'}
       <h1>Trending today</h1>
-      <MoviesList movies={movies} />
+      <MovieList movies={movies} />
     </main>
   );
 };

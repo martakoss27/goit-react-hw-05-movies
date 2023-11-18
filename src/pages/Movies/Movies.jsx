@@ -1,9 +1,8 @@
+import { MovieList } from 'pages/MovieList';
+import { MovieSearch } from 'pages/MovieSearch';
 import { useState, useEffect } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { fetchByQuery } from 'api/themoviedb.api';
-
-import { MoviesList } from 'pages/Movies-List/MoviesList';
-import { MovieSearch } from 'pages/Movies-Search/MoviesSerch';
 
 const Movies = () => {
   const [movie, setMovie] = useState([]);
@@ -25,7 +24,7 @@ const Movies = () => {
   return (
     <>
       <MovieSearch />
-      <MoviesList movies={movie} />
+      <MovieList movies={movie} />
     </>
   );
 };

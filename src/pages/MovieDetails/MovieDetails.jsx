@@ -1,7 +1,7 @@
+import { fetchMoviesDetails } from 'api/themoviedb.api';
 import { useState, useEffect } from 'react';
 import { useParams, Link, Outlet, useLocation } from 'react-router-dom';
-import { fetchMoviesDetails } from 'api/themoviedb.api';
-import css from './MoviesDetails.module.css';
+import { Wrapper, Article, StyledLi, StyledLink } from './MovieDetails.styled';
 
 const MovieDetails = () => {
   const [movies, setMovies] = useState([]);
@@ -25,37 +25,35 @@ const MovieDetails = () => {
   const getYear = () => new Date(movies.release_date).getFullYear();
 
   return (
-    <div className={css.Wrapper}>
+    <div>
       {isLoading && 'Loading...'}
-      <Link className={css.LinkBack} to={backLinkHref}>
-        Go back
-      </Link>
-      <div className={css.Article}>
+      <StyledLink to={backLinkHref}>Go back</StyledLink>
+      <Wrapper>
         <img
           src={`https://image.tmdb.org/t/p/w200/${movies.poster_path}`}
           alt={movies.title}
         />
-        <div>
+        <Article>
           <h3>
             {movies.title} ({getYear()})
           </h3>
           <p>User Score: {movies.vote_average} / 10</p>
           <h3>Overview</h3>
           <p>{movies.overview}</p>
-        </div>
-      </div>
+        </Article>
+      </Wrapper>
       <p>Additional information</p>
       <ul>
-        <li className={css.ListItem}>
+        <StyledLi>
           <Link to="reviews" style={{ textDecoration: 'none' }}>
             Reviews
           </Link>
-        </li>
-        <li className={css.ListItem}>
+        </StyledLi>
+        <StyledLi>
           <Link to="cast" style={{ textDecoration: 'none' }}>
             Cast
           </Link>
-        </li>
+        </StyledLi>
       </ul>
       <Outlet />
     </div>

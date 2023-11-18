@@ -1,4 +1,12 @@
-.List {
+import { Link } from 'react-router-dom';
+import styled from 'styled-components';
+
+export const StyledLink = styled(Link)`
+  text-decoration: none;
+  text-align: center;
+`;
+
+export const Ul = styled.ul`
   list-style-type: none;
   display: grid;
   max-width: calc(100vw - 65px);
@@ -15,9 +23,9 @@
     grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
     grid-gap: 40px;
   }
-}
+`;
 
-.ListItem {
+export const Li = styled.li`
   box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.2),
     0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 2px 1px -1px rgba(0, 0, 0, 0.12);
   border-radius: 5px;
@@ -27,12 +35,14 @@
   &:hover {
     transform: scale(1.03);
   }
-}
-.Img {
+`;
+
+export const Img = styled.img`
   width: 100%;
   object-fit: cover;
-}
-.Title {
+`;
+
+export const P = styled.p`
   font-size: 12px;
   font-weight: 700;
   color: black;
@@ -40,4 +50,4 @@
     font-size: 16px;
     font-weight: 700;
   }
-}
+`;

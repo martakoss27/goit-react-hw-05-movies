@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import PropTypes from 'prop-types';
 import { fetchMoviesReviews } from 'api/themoviedb.api';
-import css from './Reviews.module.css';
+import { StyledP } from './Reviews.styled';
+import PropTypes from 'prop-types';
 
 export const Reviews = () => {
   const [reviews, setReviews] = useState([]);
@@ -21,18 +21,18 @@ export const Reviews = () => {
       .finally(() => setIsLoading(false));
   }, [movieID]);
   return (
-    <div>
+    <section>
       {isLoading && 'Loading...'}
       {!reviews.length && <p>Sorry, no reviews for this movie...</p>}
       <ul>
         {reviews.map(({ id, author, content }) => (
           <li key={id} style={{ listStyle: 'none' }}>
-            <p>Author: {author}</p>
+            <StyledP>Author: {author}</StyledP>
             <p>{content}</p>
           </li>
         ))}
       </ul>
-    </div>
+    </section>
   );
 };
 

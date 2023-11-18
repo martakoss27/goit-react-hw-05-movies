@@ -1,9 +1,9 @@
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import PropTypes from 'prop-types';
-import css from './Cast.module.css';
-
 import { fetchMoviesCredits } from 'api/themoviedb.api';
+import { StyledLi, StyledUL } from './Cast.styled';
+import PropTypes from 'prop-types';
+
 export const Cast = () => {
   const [casts, setCasts] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
@@ -24,9 +24,9 @@ export const Cast = () => {
     <section>
       {isLoading && 'Loading...'}
       {!casts.length && <p>Sorry, no data</p>}
-      <ul className={css.CastList}>
+      <StyledUL>
         {casts.map(({ id, name, profile_path, character }) => (
-          <li className={css.CastListItem} key={id}>
+          <StyledLi key={id}>
             <img
               src={`https://image.tmdb.org/t/p/w200/${profile_path}`}
               alt={name}
@@ -35,9 +35,9 @@ export const Cast = () => {
               <b>{name}</b>
             </p>
             <p>{character}</p>
-          </li>
+          </StyledLi>
         ))}
-      </ul>
+      </StyledUL>
     </section>
   );
 };
