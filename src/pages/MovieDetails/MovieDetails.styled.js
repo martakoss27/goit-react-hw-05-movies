@@ -18,17 +18,16 @@ export const StyledLi = styled.li`
   font-weight: 700;
 
   & :hover {
-    color: white;
-    background-color: navy;
-    padding: 8px 4px;
-    border-radius: 10px;
+    color: black;
+    padding: 4px 4px;
+    border-bottom: 2px solid black;
   }
 `;
 
 export const StyledLink = styled(Link)`
-  background-color: orangered;
+  background-color: #bf4f74;
   border-radius: 28px;
-  border: 1px solid #18ab29;
+  border: none;
   display: inline-block;
   cursor: pointer;
   color: #ffffff;
@@ -36,11 +35,10 @@ export const StyledLink = styled(Link)`
   font-size: 17px;
   padding: 5px 10px;
   text-decoration: none;
-  text-shadow: 0px 1px 0px #2f6627;
   margin-bottom: 10px;
 
   &:hover {
-    background: linear-gradient(to bottom, #5cbf2a 5%, #44c767 100%);
-    background-color: #5cbf2a;
+    background-color: grey;
+    color: black;
   }
 `;

@@ -24,7 +24,7 @@ export const InputStyled = styled.input`
 
 export const ButtonStyled = styled.button`
   border: none;
-  background-color: orangered;
+  background-color: #bf4f74;
   padding: 8px 15px;
   border-radius: 25px;
   cursor: pointer;
